@@ -1,0 +1,18 @@
+<apex:page standardController="Quote" extensions="QuoteController" showHeader="false"
+    showQuickActionVfHeader="false">
+    <style type="text/css">
+
+    </style>
+        <apex:form >
+            <center>
+                <apex:commandButton action="{!generatePdfAndAttach}" value="Save"
+                    style="width: 100px;margin-top: 10px;background: #00A129; border: none; color: white;border-radius:10px; padding: 15px 15px; font-size: 16px" />
+                <apex:commandButton action="{!cancel}" value="Cancel"
+                    style="width: 100px;margin-left: 50px;background: red; border: none; color: white;border-radius:10px; padding: 15px 15px; font-size: 16px" />
+            </center> <br />
+            <center>
+                <apex:iframe height="900px" src="/apex/CreateNaturalGasPage?id={!quoteId}" />
+            </center>
+        </apex:form><br /><br /><br />
+    <footer class="slds-modal__footer"></footer>
+</apex:page>

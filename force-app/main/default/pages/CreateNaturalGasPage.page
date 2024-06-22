@@ -1,0 +1,172 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-22-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<apex:page standardController="Quote" extensions="QuoteController" renderAs="pdf">
+
+    <!-- Header -->
+    <div style="background-color:#94CECF; width: 100%; display: flex;
+            align-items: center;
+            justify-content: space-between;
+                padding: 30px 30px 0px 30px;
+            box-sizing: border-box;">
+        <div style="font-family: Arial, sans-serif;">
+            <h1 style="font-size: 36px; margin: 0; color: #233E80; font-weight: bold;">SAVE ENERGY ON SAVING</h1>
+            <h2 style="font-size: 56px; margin: 0; color: #FFFFFF; font-weight: bold;">YOUR ENERGY</h2>
+            <div style="display: flex">
+                <p style="color: #FFFFFF; margin-top: 5%">QUOTATION FOR NATURAL GAS</p>
+                <img src="{!URLFOR($Resource.Encor_by_EPCOR)}" alt="Encor by EPCOR" style="height: 80px; margin-left: 70%; margin-top: -10%"
+                />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BODY -->
+
+    <div>
+        <p style="color: black; margin-top: 5%">
+             <strong>Date : </strong>{!todayDate}</p>
+        <p style="color: black; margin-top: 2%">
+            <strong>Quotation : </strong>{!quote.QuoteNumber}</p>
+        <p style="color: black; margin-top: 2%">
+            <strong>Quotation Expiry Date : </strong>{!ExpirationDate}</p>
+        <p style="color: black; margin-top: 2%">
+            <strong>Prepared for : </strong>{!accountName}</p>
+
+        <div style="color: black; margin-top: 7%">
+            <div style="display: inline-block;vertical-align: top;"> <strong>Prepared by : </strong></div>
+            <div style="display: inline-block">
+                <div>{!CreatedByName} </div>
+                <div>{!CreatedByTitle} </div>
+                <div>{!CreatedByCompanyName} </div>
+            </div>
+        </div>
+        <div style="margin-left: 70%; ">
+            <hr/>
+            <p style="color: black; margin-top: 3%; text-align: center;">
+                <strong>Signature</strong>
+            </p>
+        </div>
+        <hr/>
+
+        <div>
+            <h2 style="margin-top: 10%; color: #233E80; font-weight: bold;">Your Custom Natural Gas Rate</h2>
+        </div>
+
+        <div>
+            <p style="color: #233E80; margin-top: 2%">
+                <strong>Fixed Rate Options:</strong>
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="padding-right:40px">Provided by Encor by EPCOR based on</th>
+                        <th>GJ annual load</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>5-year term (most popular)</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal5Year}</td>
+                        </tr>
+                        <tr>
+                            <td>3-year term</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal3Year}</td>
+                        </tr>
+                        <tr>
+                            <td>2-year term</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal2Year}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <p style="color: #233E80; margin-top: 5%">
+                <strong>Index Pricing Floating Rate Option:</strong>
+            </p>
+            <p style="color: black; margin-top: -2%">2, 3 or 5 Year Term: Monthly Index Floating Rate + $0.85/GJ Transaction Fee</p>
+            <p style="color: black; margin-top: 5%">Administration Charge/Description:</p>
+            <p style="color: black; margin-top: -2%">$0.2333 per site per day</p>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 7%;">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <h2 style="color: #233E80">Disclaimers</h2>
+                        <p style="color: black; margin-top: -3%">Fixed rate applies to energy only.</p>
+                        <p style="color: black; margin-top: -3%">Quotation excludes GST.</p>
+                        <p style="color: black; margin-top: -3%">Subject to credit approval.</p>
+                        <p style="color: black; margin-top: -3%">Excludes other charges from the Distribution System Operator associated with the delivery, distribution
+                            and transmission of services to your site(s). This includes, but is not limited to; UFE (unaccounted
+                            for energy), UFG (unaccounted for gas), line losses, power pool trading charges, franchise fees,
+                            tariffs, local access fees, rate riders, carbon taxes and any other incidental fees (where applicable).</p>
+                        <h2 style="color: #233E80">Sample Contract Energy Bill</h2>
+                        <p style="color: black; margin-top: -3%">You can view a
+                            <a href="https://www.epcor.com/products-services/encor/Documents/bill-breakdown-edm-encor.PDF" target='_blank'>sample Encor bill here</a>. See attached for a sample contract.</p>
+                    </td>
+                    <td class="sidebar" style="background-color: #C67FA9; padding: 20px; margin-top: 20px;">
+                        <p style="color: white; margin-top: -2%">Serving Albertans since before Alberta was a province</p>
+                        <p style="color: white; margin-top: -2%">Encor by EPCOR is an energy retailer offering a variety of competitively priced electricity and natural
+                            gas plans. EPCOR, our parent company, offers electricity at the regulated rate set by the Alberta
+                            Utilities Commission.</p>
+                        <p style="color: white; margin-top: -2%">EPCOR Utilities Inc. began illuminating homes and businesses in Alberta in 1891. EPCOR proudly remains
+                            100% locally owned and managed, and 100% committed to helping Alberta business owners keep the
+                            lights and natural gas on.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: -3%">
+        <h2 style="color: #233E80">Site Information</h2>
+        <table style="width: 100%; margin-top: -2%">
+            <thead>
+                <tr>
+                    <th style="width: 30%">Site ID</th>
+                    <th style="width: 70%">Service Address</th>
+                </tr>
+            </thead>
+            <apex:repeat value="{!siteIdDetails}" var="i" rendered="true">
+                <tbody>
+                    <tr>
+                        <td style="padding: 2px;text-align: center; font-size: 15px; background-color: #F1F8F7; border: 1px solid #94CECF; width: 30%">{!i.Name}</td>
+                        <td style="padding: 2px;text-align: center; font-size: 15px; margin-left: 5%; background-color: #F1F8F7; border: 1px solid #94CECF; width: 70%">{!i.Service_Address__c}</td>
+                    </tr>
+                </tbody>
+            </apex:repeat>
+        </table>
+    </div>
+
+    <!-- Bottom -->
+    <footer>
+        <div style="background-color:#94CECF; width: 100%; display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 30px 30px 0px 30px;
+                box-sizing: border-box; margin-top: 3%">
+            <div style="font-family: Arial, sans-serif;">
+                <h1 style="font-size: 26px; margin: 0; color: #233E80; font-weight: bold;">WE TAKE CARE OF BUSINESS.</h1>
+                <h2 style="font-size: 46px; margin: 0; color: #FFFFFF; font-weight: bold;">YOUR BUSINESS.</h2>
+                <div style="display: flex">
+                    <p style="color: #FFFFFF; margin-top: 3%">THANK YOU FOR ALLOWING US TO </p>
+                    <p style="color: #FFFFFF; margin-top: -2%">QUOTE ON YOUR ENERGY SERVICES</p>
+                    <img src="{!URLFOR($Resource.Encor_by_EPCOR)}" alt="Encor by EPCOR" style="height: 70px; margin-left: 70%; margin-top: -15%"
+                    />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</apex:page>
