@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 06-22-2024
+  @last modified on  : 06-24-2024
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <apex:page standardController="Quote" extensions="QuoteController" renderAs="pdf">
@@ -71,15 +71,15 @@
                 <tbody>
                         <tr>
                             <td>5-year term (most popular)</td>
-                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal5Year}</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal5Year}   $/GJ</td>
                         </tr>
                         <tr>
                             <td>3-year term</td>
-                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal3Year}</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal3Year}   $/GJ</td>
                         </tr>
                         <tr>
                             <td>2-year term</td>
-                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal2Year}</td>
+                            <td style="background-color: #F9EBA8; text-align: center;">{!GasSubTotal2Year}   $/GJ</td>
                         </tr>
                 </tbody>
             </table>
