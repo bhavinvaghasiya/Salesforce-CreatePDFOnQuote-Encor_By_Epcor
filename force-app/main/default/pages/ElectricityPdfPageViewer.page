@@ -1,4 +1,11 @@
-<apex:page standardController="Quote" extensions="ElectricityQuoteController" showHeader="false"
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<apex:page standardController="Quote" extensions="ElectricityPdfController" showHeader="false"
     showQuickActionVfHeader="false">
     <style type="text/css">
     </style>
@@ -10,7 +17,7 @@
                     style="width: 100px;margin-left: 50px;background: red; border: none; color: white;border-radius:10px; padding: 15px 15px; font-size: 16px" />
             </center> <br />
             <center>
-                <apex:iframe height="900px" src="/apex/CreateElectricityPage?id={!quoteId}" />
+                <apex:iframe height="900px" src="/apex/ElectricityPdfPage?id={!quoteId}" />
             </center>
         </apex:form><br /><br /><br />
     <footer class="slds-modal__footer"></footer>

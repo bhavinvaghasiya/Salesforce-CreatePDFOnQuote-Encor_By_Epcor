@@ -1,6 +1,13 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 06-25-2024
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 @isTest
-private class QuoteControllerTest {
-    
+private class ElectricityPdfControllerTest {
+
     @testSetup
     static void setupTestData() {
         // Create test Account
@@ -29,7 +36,7 @@ private class QuoteControllerTest {
         Site_ID__c siteId1 = new Site_ID__c(
             Name = '0030111149086',
             Service_Address__c = '123 Test Street',
-            Site_ID_Type__c = 'Natural Gas',
+            Site_ID_Type__c = 'Electricity',
             Quote__c = testQuote.Id,
             Account_Name__c = testAccount.Id
         );
@@ -42,7 +49,7 @@ private class QuoteControllerTest {
         );
         update standardPricebook;
         
-        Product2 prod2Year = new Product2(Name = 'Natural Gas 2 year', IsActive = true);
+        Product2 prod2Year = new Product2(Name = 'Electricity 2 year', IsActive = true);
         insert prod2Year;
         PricebookEntry pbe2Year = new PricebookEntry(
             Pricebook2Id = standardPricebook.Id,
@@ -51,7 +58,7 @@ private class QuoteControllerTest {
             IsActive = true
         );
         insert pbe2year;
-        Product2 prod3Year = new Product2(Name = 'Natural Gas 3 year', IsActive = true);
+        Product2 prod3Year = new Product2(Name = 'Electricity 3 year', IsActive = true);
         insert prod3Year;
         PricebookEntry pbe3Year = new PricebookEntry(
             Pricebook2Id = standardPricebook.Id,
@@ -61,7 +68,7 @@ private class QuoteControllerTest {
         );
         
         insert pbe3year;
-        Product2 prod5Year = new Product2(Name = 'Natural Gas 5 year', IsActive = true);
+        Product2 prod5Year = new Product2(Name = 'Electricity 5 year', IsActive = true);
         insert prod5Year;
         PricebookEntry pbe5Year = new PricebookEntry(
             Pricebook2Id = standardPricebook.Id,
@@ -92,9 +99,9 @@ private class QuoteControllerTest {
         );
         insert new List<QuoteLineItem> { qli2Year, qli3Year, qli5Year };
     }
-
+    
     @isTest
-    static void testQuoteController() {
+    static void testElectricityPdfController() {
         // Retrieve test data
         Quote testQuote = [SELECT Id,Name FROM Quote LIMIT 1];
 
@@ -103,31 +110,29 @@ private class QuoteControllerTest {
 
         // Initialize the controller
         ApexPages.StandardController sc = new ApexPages.StandardController(testQuote);
-        QuoteController controller = new QuoteController(sc);
+        ElectricityPdfController controller = new ElectricityPdfController(sc);
 
-            
-        
         // Assert initializations
         System.assertNotEquals(null, controller.quote);
         System.assertEquals(testQuote.Id, controller.quote.Id);
-        System.assertNotEquals(null, controller.siteIdDetails);
-        System.assertNotEquals(null, controller.quoteLintItemDetailsNatural2Year);
-        System.assertNotEquals(null, controller.quoteLintItemDetailsNatural3Year);
-        System.assertNotEquals(null, controller.quoteLintItemDetailsNatural5Year);
+        System.assertNotEquals(null, controller.siteIdDetailsElectricity);
+        System.assertNotEquals(null, controller.quoteLintItemDetailselectricity2Year);
+        System.assertNotEquals(null, controller.quoteLintItemDetailselectricity3Year);
+        System.assertNotEquals(null, controller.quoteLintItemDetailselectricity5Year);
         
         // Test GasSubTotal values
-        System.assertEquals(100, controller.GasSubTotal2Year);
-        System.assertEquals(200, controller.GasSubTotal3Year);
-        System.assertEquals(300, controller.GasSubTotal5Year);
+        System.assertEquals(100, controller.ElectricSubTotal2Year);
+        System.assertEquals(200, controller.ElectricSubTotal3Year);
+        System.assertEquals(300, controller.ElectricSubTotal5Year);
 
-        PageReference pdfPage = Page.CreateNaturalGasPage;
+        PageReference pdfPage = Page.ElectricityPdfPage;
         Test.setCurrentPage(pdfPage);
         pdfPage.getParameters().put('id', testQuote.Id);
         
         Test.startTest();
         // Create an instance of the controller
         // Test PDF generation method
-        PageReference pageRef = Page.CreateNaturalGasPage;
+        PageReference pageRef = Page.ElectricityPdfPage;
         pageRef.getParameters().put('id', testQuote.Id);
         Test.setCurrentPage(pageRef);
         PageReference result = controller.generatePdfAndAttach();
@@ -161,6 +166,6 @@ private class QuoteControllerTest {
 
         // Initialize the controller
         ApexPages.StandardController sc = new ApexPages.StandardController(testQuote);
-        QuoteController controller = new QuoteController(sc);
+        ElectricityPdfController controller = new ElectricityPdfController(sc);
     }
 }

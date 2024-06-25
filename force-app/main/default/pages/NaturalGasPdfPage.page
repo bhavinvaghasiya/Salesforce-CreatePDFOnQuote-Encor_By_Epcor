@@ -2,10 +2,10 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 06-24-2024
+  @last modified on  : 06-25-2024
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
-<apex:page standardController="Quote" extensions="QuoteController" renderAs="pdf">
+<apex:page standardController="Quote" extensions="NaturalGasPdfController" renderAs="pdf">
 
     <!-- Header -->
     <div style="background-color:#94CECF; width: 100%; display: flex;

@@ -2,10 +2,10 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 06-22-2024
+ * @last modified on  : 06-25-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
-public with sharing class QuoteController {
+public with sharing class NaturalGasPdfController {
     public Quote quote { get; private set; }    
     public String accountName { get; set; }
     public String CreatedByName { get; set; }
@@ -26,7 +26,7 @@ public with sharing class QuoteController {
     public String quoteId { get; set; }
 
 
-    public QuoteController(ApexPages.StandardController stdController) {
+    public NaturalGasPdfController(ApexPages.StandardController stdController) {
         this.quote = (Quote)stdController.getRecord();
         quoteId = ApexPages.currentPage().getParameters().get('id');
         
@@ -159,7 +159,7 @@ public with sharing class QuoteController {
     public PageReference generatePdfAndAttach() {
         // Generate the PDF content
           system.debug('quoteId@@ ' + quoteId);
-        PageReference pdfPage = Page.CreateNaturalGasPage; // Ensure this matches your VF page name
+        PageReference pdfPage = Page.NaturalGasPdfPage; // Ensure this matches your VF page name
         pdfPage.getParameters().put('id', quoteId);
         Blob pdfBlob;
         try {
@@ -178,7 +178,7 @@ public with sharing class QuoteController {
         ContentVersion conVer = NEW ContentVersion();
         conVer.ContentLocation = 'S'; // TO USE S specify this document IS IN Salesforce, TO USE E FOR external files
         conVer.PathOnClient = quote.Name+'.pdf'; 
-        conVer.Title = quote.Name+'.pdf'; 
+        conVer.Title = quote.Name+'-Natural Gas'+'.pdf'; 
         conVer.VersionData = pdfBlob;
         system.debug('conVer@@ ' + conVer);
         INSERT conVer;  

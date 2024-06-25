@@ -2,10 +2,10 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 06-22-2024
+  @last modified on  : 06-25-2024
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
-<apex:page standardController="Quote" extensions="ElectricityQuoteController" renderAs="pdf" contentType="application/pdf">
+<apex:page standardController="Quote" extensions="ElectricityPdfController" renderAs="pdf" contentType="application/pdf">
 
         <div style="background-color:#94CECF; width: 100%; display: flex;
             align-items: center;
